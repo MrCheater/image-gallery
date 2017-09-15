@@ -1,0 +1,19 @@
+{
+  "name": "image-gallery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrCheater/image-gallery.git"
+  },
+  "author": "Mr.Cheater (Anton Zhukov)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MrCheater/image-gallery/issues"
+  },
+  "homepage": "https://github.com/MrCheater/image-gallery#readme"
+}
