@@ -1,9 +1,10 @@
 {
   "name": "image-gallery",
   "version": "1.0.0",
-  "description": "",
+  "description": "A gallery for viewing images",
   "main": "server/index.js",
   "scripts": {
+    "start": "next build && babel-node ./server/index.js",
     "test": "jest"
   },
   "repository": {
@@ -15,5 +16,30 @@
   "bugs": {
     "url": "https://github.com/MrCheater/image-gallery/issues"
   },
-  "homepage": "https://github.com/MrCheater/image-gallery#readme"
+  "homepage": "https://github.com/MrCheater/image-gallery#readme",
+  "keywords": [
+    "expressjs",
+    "mongodb",
+    "es6",
+    "es7",
+    "async-await",
+    "image",
+    "gallery",
+    "ajax",
+    "non-ajax"
+  ],
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "express": "^4.15.4",
+    "next": "^3.2.2",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "regenerator-runtime": "^0.11.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "jest": "^21.1.0"
+  }
 }
