@@ -1,11 +1,33 @@
+import express from 'express';
+
 import createBackend from './createBackend';
 import createFrontend from './createFrontend';
 
-export default async ({ engine, handle, server, port }) => {
+export default async ({
+    engine,
+    handle,
+    port,
+    models,
+    uploadFile,
+    getMetadata,
+    compressFile,
+    guid,
+}) => {
     await engine.prepare();
 
     const ui = createFrontend({ engine, handle });
-    const api = createBackend();
+    const api = createBackend({
+        models,
+        uploadFile,
+        getMetadata,
+        compressFile,
+        guid,
+    });
+
+    const server = express();
+
+    // Static
+    server.use('/static', express.static('static'));
 
     // Frontend
     server.get('/', ui.renderHome);
@@ -14,11 +36,10 @@ export default async ({ engine, handle, server, port }) => {
 
     // Backend
     server.post('/api/images/', api.uploadImage);
-    server.post('/api/images/:imageID/comments/', api.createComment);
-    server.put('/api/images/:imageID/comments/:commentID', api.updateComment);
+    server.post('/api/images/:id/comments/', api.updateComment);
     server.get('/api/images/', api.loadImages);
-    server.get('/api/images/:imageID', api.loadImage);
-    server.get('/api/images/:imageID/comments/', api.loadComments);
+    server.get('/api/images/:id', api.loadImage);
+    server.delete('/api/images/:id', api.removeImage);
 
     // Other
     server.get('*', ui.renderOther);

@@ -1,20 +1,41 @@
 import next from 'next';
-import express from 'express';
 
+import mongoose from 'mongoose';
+mongoose.Promise = Promise;
+
+import compressFile from './compressFile';
+import getMetadata from './getMetadata';
 import createServer from './createServer';
+import createModels from './createModels';
+import createFileUploader from './createFileUploader';
+import guid from './guid';
 
 (async () => {
-    const engine = next({ dev: false });
-    const handle = engine.getRequestHandler();
-    const server = express();
-    const port = process.env.PORT || 3000;
-
     try {
+        const engine = next({ dev: false });
+        const handle = engine.getRequestHandler();
+        const port = process.env.PORT || 3000;
+
+        const connection = await mongoose.createConnection(
+            'mongodb://localhost/image-gallery',
+            {
+                useMongoClient: true,
+            },
+        );
+
+        const models = createModels({ connection, mongoose });
+
+        const uploadFile = createFileUploader();
+
         await createServer({
             engine,
             handle,
-            server,
+            models,
             port,
+            uploadFile,
+            getMetadata,
+            compressFile,
+            guid,
         });
     } catch (error) {
         console.error(error);

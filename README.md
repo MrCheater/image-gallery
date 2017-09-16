@@ -1,7 +1,7 @@
 # image-gallery
 A gallery for viewing images
 
-Express + MongoDB + ES6, ES7 + Async/Await + Ajax/non-AJAX mode
+Express + MongoDB + Mongoose + ES6, ES7 + Async/Await + Ajax/non-AJAX mode
 
 1. Image Uploader: Upload ->  Extract Metadata -> Compress an image
 2. Images are shown in multiple columns depending on the size of the display. They can be deleted. 
