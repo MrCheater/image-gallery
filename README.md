@@ -8,7 +8,7 @@ Express + MongoDB + Mongoose + ES6, ES7 + Async/Await + Ajax/non-AJAX mode
 3. Images can be commented (create/update comments)
 
 ### Usage
-```
+``` bash
 git clone https://github.com/MrCheater/image-gallery.git
 cd image-gallery
 npm install
