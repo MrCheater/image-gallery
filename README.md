@@ -15,6 +15,13 @@ npm install
 npm run start
 ```
 
+### Live Demo
+##### SPA + Ajax mode
+![SPA + Ajax mode](static/ajax.gif)
+
+##### Disable JavaScript + Non-ajax mode
+![Disable JavaScript + Non-ajax mode](static/non-ajax.gif)
+
 ### Requirements
 * MongoDB 3.4.9
 * Node.js 8.5.0

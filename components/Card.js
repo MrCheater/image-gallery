@@ -1,10 +1,7 @@
-import routes from '../server/routes';
-const { Link } = routes;
-
 import Description from './Description';
 
 const Card = ({ _id: id, description }) => (
-    <Link route={`/images/${id}`}>
+    <a href={`/images/${id}`}>
         <div className="card">
             <div
                 className="card__image"
@@ -14,7 +11,7 @@ const Card = ({ _id: id, description }) => (
             />
             <Description text={description} />
         </div>
-    </Link>
+    </a>
 );
 
 export default Card;
