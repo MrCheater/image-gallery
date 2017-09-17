@@ -13,7 +13,7 @@ export default class extends Document {
                     <link
                         rel="shortcut icon"
                         type="image/x-icon"
-                        href="/static/favicon.png"
+                        href="/static/logo.png"
                     />
                     <link
                         rel="stylesheet"

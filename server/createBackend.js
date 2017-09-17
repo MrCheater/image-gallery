@@ -44,23 +44,29 @@ export default ({
             res.end(JSON.stringify({ id }));
         },
 
-        async updateComment(req, res) {
-            // TODO
+        async updateDescription(req, res) {
+            await Image.findByIdAndUpdate(
+                req.params.id,
+                { $set: { description: req.body.description } },
+                { new: false },
+            );
+            res.writeHead(302, { Location: `/images/${req.params.id}` });
             res.end();
         },
 
         async loadImage(req, res) {
-            // TODO
-            res.end();
+            const image = await Image.findById(req.params.id).exec();
+            res.json(image);
         },
 
         async loadImages(req, res) {
-            // TODO
-            res.end();
+            const images = await Image.find({}).exec();
+            res.json(images);
         },
 
         async removeImage(req, res) {
-            // TODO
+            await Image.findByIdAndRemove(req.params.id).exec();
+            res.writeHead(302, { Location: `/images/` });
             res.end();
         },
     });

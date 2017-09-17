@@ -6,6 +6,6 @@ export default ({ connection, mongoose: { Schema } }) => ({
         gps: Schema.Types.Mixed,
         interoperability: Schema.Types.Mixed,
         makernote: Schema.Types.Mixed,
-        comment: String,
+        description: String,
     }),
 });

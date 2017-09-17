@@ -9,11 +9,12 @@ import createServer from './createServer';
 import createModels from './createModels';
 import createFileUploader from './createFileUploader';
 import guid from './guid';
+import routes from './routes';
 
 (async () => {
     try {
         const engine = next({ dev: false });
-        const handle = engine.getRequestHandler();
+        const handle = routes.getRequestHandler(engine);
         const port = process.env.PORT || 3000;
 
         const connection = await mongoose.createConnection(

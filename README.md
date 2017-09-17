@@ -5,7 +5,7 @@ Express + MongoDB + Mongoose + ES6, ES7 + Async/Await + Ajax/non-AJAX mode
 
 1. Image Uploader: Upload ->  Extract Metadata -> Compress an image
 2. Images are shown in multiple columns depending on the size of the display. They can be deleted. 
-3. Images can be commented (create/update comments)
+3. Images can be commented (create/update description)
 
 ### Usage
 ``` bash
