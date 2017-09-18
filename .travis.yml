@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+  - "8"
+install:
+  - npm install
+  - npm install -g prettier
+script:
+  - 'if [ "$(prettier --tab-width 4 --single-quote --trailing-comma all --write "**/*.js" --list-different)" ]; then exit 1; fi'
+  - npm run test

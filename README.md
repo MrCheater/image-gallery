@@ -1,4 +1,5 @@
-# image-gallery
+# image-gallery &middot; [![Build Status](https://travis-ci.org/MrCheater/image-gallery.svg?branch=master)](https://travis-ci.org/MrCheater/image-gallery) 
+
 A gallery for viewing images
 
 Express + MongoDB + Mongoose + ES6, ES7 + Async/Await + Ajax/non-AJAX mode

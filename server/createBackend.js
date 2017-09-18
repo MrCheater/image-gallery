@@ -1,17 +1,19 @@
-function catchAsyncErrors(api) {
-    for (let routeName in api) {
-        const route = api[routeName];
-        api[routeName] = async (req, res) => {
-            try {
-                await route(req, res);
-            } catch (error) {
-                console.error(error);
-                res.status(500).send(error.toString());
-            }
-        };
-    }
-    return api;
-}
+export const utils = {
+    catchAsyncErrors(api) {
+        for (let routeName in api) {
+            const route = api[routeName];
+            api[routeName] = async (req, res) => {
+                try {
+                    await route(req, res);
+                } catch (error) {
+                    console.error(error);
+                    res.status(500).send(error.toString());
+                }
+            };
+        }
+        return api;
+    },
+};
 
 export default ({
     models: { Image },
@@ -20,7 +22,7 @@ export default ({
     compressFile,
     guid,
 }) =>
-    catchAsyncErrors({
+    utils.catchAsyncErrors({
         async uploadImage(req, res) {
             const id = guid();
             const destination = (req.destination = './static');
@@ -55,18 +57,18 @@ export default ({
         },
 
         async loadImage(req, res) {
-            const image = await Image.findById(req.params.id).exec();
+            const image = await Image.findById(req.params.id);
             res.json(image);
         },
 
         async loadImages(req, res) {
-            const images = await Image.find({}).exec();
+            const images = await Image.find({});
             res.json(images);
         },
 
         async removeImage(req, res) {
-            await Image.findByIdAndRemove(req.params.id).exec();
-            res.writeHead(302, { Location: `/images/` });
+            await Image.findByIdAndRemove(req.params.id);
+            res.writeHead(302, { Location: `/` });
             res.end();
         },
     });
