@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 
 import guid from '../server/guid';
 
-const id = {id: 42}
+const id = { id: 42 };
 
 let ObjectId;
 
@@ -16,5 +16,5 @@ afterAll(() => {
 });
 
 it('guid should return new ObjectId', async () => {
-    expect(guid()).toEqual(id)
+    expect(guid()).toEqual(id);
 });
